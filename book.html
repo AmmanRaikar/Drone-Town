@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #f0f4ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(
+                    rgba(0, 0, 0, 0.75),
+                    rgba(0, 0, 0, 0.75)
+                ),
+                url("service.jpg") no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .form-row > div {
+            width: 100%;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+            font-size: 14px;
+            color: #555;
+        }
+
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+            transform: scale(1.02);
+        }
+
+        button:active {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <header class="banner">
+        <div class="form-container">
+            <h2>Book Now</h2>
+            <form action="#" method="POST">
+                <div class="form-row">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label for="contact">Contact No</label>
+                        <input type="tel" id="contact" name="contact" placeholder="Your Contact Number" required>
+                    </div>
+                </div>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                <div class="form-row">
+                    <div>
+                        <label for="event-name">Event Name</label>
+                        <input type="text" id="event-name" name="event-name" placeholder="Service needed for" required>
+                    </div>
+                    <div>
+                        <label for="event-venue">Event Venue</label>
+                        <input type="text" id="event-venue" name="event-venue" placeholder="Event Venue" required>
+                    </div>
+                </div>
+
+                <label>Choose your service</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="service" value="portrait" required> Portrait Photography</label>
+                    <label><input type="radio" name="service" value="event"> Event Photography</label>
+                    <label><input type="radio" name="service" value="videography"> Videography</label>
+                </div>
+
+                <label for="special-request">Any Special Request</label>
+                <textarea id="special-request" name="special-request" placeholder="Your requests here..."></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </header>
+</body>
+</html>

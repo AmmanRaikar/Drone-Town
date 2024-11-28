@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #1fe6a7;
+            margin-bottom: 20px;
+        }
+
+        .photo {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 10px;
+            background-color: #1fe6a7;
+            color: white;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Portfolio</h1>
+    <div class="gallery">
+        <img src="project.jpg" class="photo" alt="Project 1">
+        <img src="p2.jpg" class="photo" alt="Project 2">
+        <img src="p3.jpg" class="photo" alt="Project 3">
+        <img src="p4.jpg" class="photo" alt="Project 4">
+        <img src="p5.jpg" class="photo" alt="Project 5">
+        <img src="p6.jpg" class="photo" alt="Project 6">
+        <img src="p7.jpg" class="photo" alt="Project 7">
+        <img src="p8.jpg" class="photo" alt="Project 8">
+        <img src="p9.jpg" class="photo" alt="Project 9">
+        <img src="booknow.jpg" class="photo" alt="Book Now">
+    </div>
+    <footer>&copy; 2024 My Portfolio | Capturing Moments, Creating Memories</footer>
+</body>
+</html>

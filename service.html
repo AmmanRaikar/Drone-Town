@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Page</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+
+        .banner {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(
+                    rgba(0, 0, 0, 0.8),
+                    rgba(0, 0, 0, 0.8)
+                ),
+                url("service.jpg") no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #1fe6a7;
+        }
+
+        .banner h1 {
+            font-size: 2.5rem;
+            font-style: italic;
+        }
+
+        .banner p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .banner button {
+            margin: 15px 10px;
+            padding: 10px 20px;
+            background: #1fe6a7;
+            border: none;
+            border-radius: 25px;
+            color: #121212;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .banner button:hover {
+            background: #0bb795;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2em auto;
+            padding: 0 1em;
+        }
+
+        .service {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2em;
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 10px;
+            margin-bottom: 2em;
+            padding: 2em;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .service img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+        }
+
+        .service-content {
+            flex: 1;
+        }
+
+        .service-content h2 {
+            color: #1fe6a7;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .service-content p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        .service-content .price {
+            font-size: 1.2rem;
+            color: #1fe6a7;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .book-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            color: #1fe6a7;
+            border: 1px solid #1fe6a7;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .book-button:hover {
+            background: #1fe6a7;
+            color: #121212;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2em;
+            background: #1e1e1e;
+            color: #f5f5f5;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="banner">
+        <h1>Our Services</h1>
+        <p>Well-captured, Excellent Moments of Life</p>
+        <div>
+            <button onclick="location.href='#property-shoot'">Property Shoot</button>
+            <button onclick="location.href='#wedding'">Wedding</button>
+            <button onclick="location.href='#corporates'">Corporates</button>
+            <button onclick="location.href='#events'">Events</button>
+            <button onclick="location.href='#government-contract'">Government Contract</button>
+            <button onclick="location.href='#portraits'">Portraits</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Event Photography Section -->
+        <div class="service">
+            <div class="service-content">
+                <h2>Event Photography</h2>
+                <p>Capture unforgettable moments at weddings, birthdays, award ceremonies, and more. Perfect for preserving life's special occasions.</p>
+                <p>Let our skilled photographers bring your events to life with professional and creative shots.</p>
+                <p class="price">From Rs.30K</p>
+                <a href="book.html" class="book-button">Book Now</a>
+            </div>
+            <img src="p3.jpg" alt="Event Photography">
+        </div>
+
+        <!-- Videography Section -->
+        <div class="service">
+            <img src="p5.jpg" alt="Videography">
+            <div class="service-content">
+                <h2>Videography</h2>
+                <p>Our videography services focus on capturing the essence of your story. From corporate to personal events, we deliver high-quality videos.</p>
+                <p>Transform your moments into memories with our cutting-edge video production techniques.</p>
+                <p class="price">From Rs.50K</p>
+                <a href="book.html" class="book-button">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Portraits Section -->
+        <div class="service">
+            <div class="service-content">
+                <h2>Portraits</h2>
+                <p>Highlight the personality and essence of individuals or groups with our portrait photography. Perfect for personal and professional needs.</p>
+                <p>Creative lighting, composition, and poses ensure stunning results every time.</p>
+                <p class="price">From Rs.10K</p>
+                <a href="book.html" class="book-button">Book Now</a>
+            </div>
+            <img src="p2.jpg" alt="Portraits">
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 The Ultimate Photography Services. Capturing Life's Best Moments.
+    </footer>
+</body>
+</html>
