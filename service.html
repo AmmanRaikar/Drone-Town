@@ -205,8 +205,18 @@
         }
 
     </style>
+    <script>
+        // Redirect to the loader page with the current page as the target
+        window.onload = function() {
+            if (!sessionStorage.getItem('visited')) {
+                sessionStorage.setItem('visited', 'true');
+                window.location.href = 'loader.html?target=' + encodeURIComponent(window.location.pathname + window.location.search);
+            }
+        }
+    </script>
 </head>
 <body>
+
     <header class="banner">
         <h1>Our Services</h1>
         <p>Well-captured, Excellent Moments of Life</p>

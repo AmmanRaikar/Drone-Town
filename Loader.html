@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading Animation</title>
-    <link rel="stylesheet" href="Loader.css">
+    <title>Loading...</title>
+    <link rel="stylesheet" href="loader.css">
 </head>
 <body>
     <div class="loader">
         <img src="logo1.jpg" alt="The Drone Town Logo" class="logo">
         <div class="spinner"></div>
     </div>
+    <script>
+        // Redirect to the target page after a delay
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const target = params.get('target');
+            if (target) {
+                setTimeout(function() {
+                    window.location.href = target;
+                }, 3000); // Adjust the timeout as needed
+            }
+        });
+    </script>
 </body>
 </html>

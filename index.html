@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Drone Town</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        // Redirect to the loader page with the current page as the target
+        window.onload = function() {
+            if (!sessionStorage.getItem('visited')) {
+                sessionStorage.setItem('visited', 'true');
+                window.location.href = 'loader.html?target=' + encodeURIComponent(window.location.pathname + window.location.search);
+            }
+        }
+    </script>
 </head>
 <body>
-
     <header class="banner">
         <div class="overlay"></div>
         <video autoplay muted loop id="background-video">

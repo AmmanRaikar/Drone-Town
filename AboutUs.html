@@ -123,8 +123,18 @@
             transform: scale(1.05); /* Hover effect */
         }
     </style>
+    <script>
+        // Redirect to the loader page with the current page as the target
+        window.onload = function() {
+            if (!sessionStorage.getItem('visited')) {
+                sessionStorage.setItem('visited', 'true');
+                window.location.href = 'loader.html?target=' + encodeURIComponent(window.location.pathname + window.location.search);
+            }
+        }
+    </script>
 </head>
 <body>
+
 
     <header>
         <a href="tel:0000000000" class="contact-info">00000-00000</a>
