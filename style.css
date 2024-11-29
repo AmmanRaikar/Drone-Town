@@ -1,91 +1,164 @@
-*{
+/* Importing the fonts (if hosted locally or from a font hosting service) */
+@font-face {
+    font-family: 'Founders Grotesk';
+    src: url('path-to-founders-grotesk.woff2') format('woff2'),
+         url('path-to-founders-grotesk.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('path-to-graphik.woff2') format('woff2'),
+         url('path-to-graphik.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Graphik', sans-serif; /* Default font */
 }
-.banner{
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+.banner {
+    position: relative;
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url("the drone town.jpg");
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #1b2b24; Fallback color */
 }
-.navbar{
+
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background: url('the\ drone\ town.jpg') no-repeat;
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 0;
+}
+
+.navbar {
     width: 85%;
+    margin-top: -10px;
     margin: auto;
-    padding: 35px 0;
+    padding: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(27, 43, 36, 0.8); /* Semi-translucent dark green */
+    border-radius: 10px;
 }
-.logo{
+
+.logo {
     width: 100px;
     cursor: pointer;
-    position: left;
 }
-.navbar ul li{
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.navbar ul li {
     list-style: none;
     display: inline-block;
     margin: 0 20px;
 }
-.navbar ul li a{
-    text-decoration: plum;
-    color: #1fe6a7;
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff; /* White text for navbar links */
     text-transform: uppercase;
+    position: relative;
 }
-.navbar ul li ::after{
-    content:'';
+
+.navbar ul li::after {
+    content: '';
     height: 3px;
     width: 0;
-    background: #009688;
+    background: #e1e1e1; /* Light grey for hover effect */
     position: absolute;
     left: 0;
     bottom: -10px;
     transition: 0.5s;
 }
-.navbar ul li:hover::after{
+
+.navbar ul li:hover::after {
     width: 100%;
     background: #fff;
 }
-.content{
+
+.content {
     width: 100%;
-    position: absolute;
-    top: 25%;
+    position: relative;
+    top: 0;
     text-align: center;
-    color: #1fe6a7;
-    /*transform: translate(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    border: 1px solid #000;*/
-    
+    color: #fff; /* White text for content */
+    z-index: 1;
 }
-.content h1{
+
+.content h1 {
     font-size: 70px;
-    margin-top: 80px;
+    margin-top: 150px;
+    font-family: 'Founders Grotesk', serif; /* Heading font */
 }
-.content p{
+
+.content p {
     margin: 20px auto;
     font-weight: 100;
     line-height: 25px;
+    max-width: 600px;
 }
-button{
+
+button {
     width: 200px;
     padding: 15px 0;
-    text-align: centre;
+    text-align: center;
     margin: 20px 10px;
+    margin-bottom: 50px;
     border-radius: 25px;
     font-weight: bold;
-    border: 2px solid #009688;
-    background-color: #1fe6a7;
-    color: #1fe6a7;
+    border: 2px solid #1b2b24; /* Dark green border */
+    background-color: #1b2b24; /* Dark green background */
+    color: #fff; /* White text */
     cursor: pointer;
     position: relative;
     overflow: hidden;
 }
-span{
-    background: #009688;
+
+button span {
+    background: #e1e1e1; /* Light grey for button hover effect */
     height: 100%;
     width: 0%;
     border-radius: 25px;
@@ -94,11 +167,54 @@ span{
     bottom: 0;
     z-index: -1;
 }
-button:hover span{
-    width:100%;
-   
+
+button:hover span {
+    width: 100%;
 }
-button:hover{
+
+button:hover {
     border: none;
-    background-color: red;
+    background-color: #e1e1e1; /* Light grey on hover */
+    color: #1b2b24; /* Dark green text on hover */
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.scroll-indicator span {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    animation: bounce 2s infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
 }

@@ -9,8 +9,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #f9f9f9;
+            color: #fff;
+            background-color: #1a1a1a; /* Dark background */
         }
         header {
             background-image: url('booknow.jpg'); 
@@ -30,37 +30,43 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background-color: #927fe4;
+            background-color: #4b8c43; /* Bottle green */
             color: #fff;
             padding: 10px;
             border-radius: 5px;
             font-weight: bold;
             text-decoration: none;
         }
+        .contact-info:hover {
+            transform: scale(1.1); /* Hover effect */
+        }
         nav ul {
             display: flex;
             justify-content: center;
             list-style-type: none;
             padding: 10px 0;
-            background-color: #fff;
+            background-color: #333; /* Dark background */
             margin: 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         nav ul li {
             margin: 0 20px;
         }
         nav ul li a {
-            color: #333;
+            color: #fff;
             text-decoration: none;
             font-weight: bold;
             font-size: 18px;
+        }
+        nav ul li a:hover {
+            color: #4b8c43; /* Bottle green */
         }
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
-            background: #fff;
+            background: #2c2c2c; /* Dark grey container */
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -69,6 +75,7 @@
             margin: 20px 0;
             font-size: 18px;
             line-height: 1.6;
+            color: #ccc; /* Light grey text */
         }
         .contact-buttons {
             display: flex;
@@ -77,26 +84,27 @@
             margin: 20px 0;
         }
         .contact-buttons a {
-            background-color: #927fe4;
+            background-color: #4b8c43; /* Bottle green */
             color: #fff;
-            padding: 10px 20px;
+            padding: 12px 24px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
         }
         .contact-buttons a:hover {
-            background-color: #7a67d3;
+            background-color: #3f7a35; /* Darker green */
         }
         .social {
             margin: 20px 0;
             font-size: 16px;
         }
         .social a {
-            color: #927fe4;
+            color: #4b8c43;
             text-decoration: none;
             font-weight: bold;
         }
         .social a:hover {
+            color: #3f7a35; /* Darker green on hover */
             text-decoration: underline;
         }
         .gallery {
@@ -108,15 +116,18 @@
         .gallery img {
             width: 100%;
             height: auto;
-            border-radius: 5px;
+            border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .gallery img:hover {
+            transform: scale(1.05); /* Hover effect */
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="tel:8123077267" class="contact-info">8123-077-267</a>
+        <a href="tel:0000000000" class="contact-info">00000-00000</a>
         <h1>About Us</h1>
     </header>
 
@@ -130,7 +141,7 @@
 
     <div class="container">
         <p class="description">
-            A highly <span style="color: #927fe4;">collaborative</span> and <span style="color: #927fe4;">supportive</span> individual, coming together on every project to ensure our clients get the very best result.
+            A highly <span style="color: #4b8c43;">collaborative</span> and <span style="color: #4b8c43;">supportive</span> individual, coming together on every project to ensure our clients get the very best result.
         </p>
 
         <div class="contact-buttons">

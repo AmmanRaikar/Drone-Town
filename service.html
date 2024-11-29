@@ -16,27 +16,54 @@
             font-family: 'Arial', sans-serif;
             background-color: #121212;
             color: #f5f5f5;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
+        /* Parallax Effect for Banner */
         .banner {
+            position: relative;
             width: 100%;
-            height: 300px;
+            height: 400px;
             background: linear-gradient(
                     rgba(0, 0, 0, 0.8),
                     rgba(0, 0, 0, 0.8)
                 ),
                 url("service.jpg") no-repeat center center/cover;
+            background-attachment: fixed; /* Parallax effect */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: #1fe6a7;
+            animation: fadeInBanner 2s ease-out;
+        }
+
+        /* Fade-In Animation for Banner */
+        @keyframes fadeInBanner {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .banner h1 {
             font-size: 2.5rem;
             font-style: italic;
+            animation: slideUp 2s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .banner p {
@@ -54,12 +81,14 @@
             color: #121212;
             font-size: 1rem;
             cursor: pointer;
-            transition: background 0.3s ease, color 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.4s ease;
         }
 
+        /* Button Hover Effect */
         .banner button:hover {
             background: #0bb795;
             color: #fff;
+            transform: scale(1.1); /* Enlarge the button */
         }
 
         .container {
@@ -68,6 +97,7 @@
             padding: 0 1em;
         }
 
+        /* Service Section Styling */
         .service {
             display: flex;
             flex-wrap: wrap;
@@ -79,22 +109,44 @@
             margin-bottom: 2em;
             padding: 2em;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateX(100px); /* Start off-screen to the right */
+            animation: none;
+            transition: transform 1.5s ease-out, opacity 1.5s ease-out; /* Smooth transition */
         }
 
+        /* Image Hover Effect */
         .service img {
             width: 100%;
             max-width: 350px;
             border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Image Hover Effect */
+        .service img:hover {
+            transform: scale(1.05); /* Enlarge image on hover */
         }
 
         .service-content {
             flex: 1;
+            transition: transform 0.3s ease;
+        }
+
+        /* Enlarge service content on hover */
+        .service:hover .service-content {
+            transform: scale(1.05);
         }
 
         .service-content h2 {
             color: #1fe6a7;
             font-size: 1.8rem;
             margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .service-content h2:hover {
+            color: #0bb795; /* Hover effect */
         }
 
         .service-content p {
@@ -122,9 +174,11 @@
             transition: all 0.3s ease;
         }
 
+        /* Button Hover Effect for Booking Button */
         .book-button:hover {
             background: #1fe6a7;
             color: #121212;
+            transform: scale(1.1); /* Enlarge the button */
         }
 
         footer {
@@ -133,7 +187,23 @@
             background: #1e1e1e;
             color: #f5f5f5;
             font-size: 1rem;
+            animation: fadeInFooter 2s ease-out;
         }
+
+        @keyframes fadeInFooter {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Smooth Scroll Effect */
+        html {
+            scroll-behavior: smooth;
+        }
+
     </style>
 </head>
 <body>
@@ -152,7 +222,7 @@
 
     <div class="container">
         <!-- Event Photography Section -->
-        <div class="service">
+        <div class="service" id="events">
             <div class="service-content">
                 <h2>Event Photography</h2>
                 <p>Capture unforgettable moments at weddings, birthdays, award ceremonies, and more. Perfect for preserving life's special occasions.</p>
@@ -164,7 +234,7 @@
         </div>
 
         <!-- Videography Section -->
-        <div class="service">
+        <div class="service" id="corporates">
             <img src="p5.jpg" alt="Videography">
             <div class="service-content">
                 <h2>Videography</h2>
@@ -176,7 +246,7 @@
         </div>
 
         <!-- Portraits Section -->
-        <div class="service">
+        <div class="service" id="portraits">
             <div class="service-content">
                 <h2>Portraits</h2>
                 <p>Highlight the personality and essence of individuals or groups with our portrait photography. Perfect for personal and professional needs.</p>
@@ -191,5 +261,28 @@
     <footer>
         &copy; 2024 The Ultimate Photography Services. Capturing Life's Best Moments.
     </footer>
+
+    <script>
+        // Intersection Observer to trigger animation on scroll
+        const services = document.querySelectorAll('.service');
+
+        const observerOptions = {
+            threshold: 0.5, // Trigger when 50% of the element is in view
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)'; // Bring the element into view
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        services.forEach(service => {
+            observer.observe(service);
+        });
+    </script>
 </body>
 </html>

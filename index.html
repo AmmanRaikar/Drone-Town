@@ -9,10 +9,15 @@
 <body>
 
     <header class="banner">
+        <div class="overlay"></div>
+        <video autoplay muted loop id="background-video">
+            <source src="videoplayback.webm" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
         <nav class="navbar">
             <img src="logo1.jpg" class="logo">
             <ul>
-                <li><a href="index.html" style="color: #fff;">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="service.html">Services</a></li>
                 <li><a href="AboutUs.html">About Us</a></li>
                 <li><a href="https://www.whatsapp.com/">Send a Message</a></li>
@@ -23,9 +28,7 @@
             <h1>THE DRONE TOWN</h1>
             <p>Book a session today; capture moments, create memories forever.</p>
             <div>
-               
-                <button type="button" style="color: #fff;" onclick="location.href='book.html'">Book Now</button>
-                
+                <button type="button" onclick="location.href='book.html'">Book Now</button>
             </div>
         </div>
     </header>

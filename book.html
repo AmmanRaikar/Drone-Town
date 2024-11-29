@@ -5,27 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Now</title>
     <style>
-        /* General Reset */
-        * {
+                /* General Reset */
+                * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            background-color: #f0f4ec;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #fff; /* Light text */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
-            overflow: hidden;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+            padding: 20px;
         }
 
         .banner {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(
                     rgba(0, 0, 0, 0.75),
                     rgba(0, 0, 0, 0.75)
@@ -34,16 +36,24 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            padding: 0 20px; /* Prevents elements from touching the edge */
+            box-sizing: border-box;
         }
 
         .form-container {
-            width: 90%;
-            max-width: 500px;
+            width: 100%;
+            max-width: 480px;
             padding: 30px;
-            background-color: #fff;
+            background-color: #222; /* Dark form background */
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             animation: fadeIn 1.2s ease-in-out;
+            position: relative;
+            z-index: 2;
+            overflow: hidden; /* Prevents overflow of form */
         }
 
         @keyframes fadeIn {
@@ -59,15 +69,16 @@
 
         h2 {
             text-align: center;
-            color: #333;
+            color: #4CAF50; /* Bottle Green for heading */
             font-size: 28px;
             margin-bottom: 20px;
+            font-weight: bold;
         }
 
         label {
             display: block;
             margin: 10px 0 5px;
-            color: #555;
+            color: #ddd; /* Light gray text */
             font-weight: bold;
             font-size: 14px;
         }
@@ -80,15 +91,19 @@
             width: 100%;
             padding: 12px;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
+            border: 1px solid #444;
             border-radius: 5px;
             font-size: 16px;
+            background-color: #333; /* Dark inputs */
+            color: #fff; /* White text for inputs */
+            box-sizing: border-box;
         }
 
         .form-row {
             display: flex;
             justify-content: space-between;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .form-row > div {
@@ -104,7 +119,7 @@
         .radio-group label {
             font-weight: normal;
             font-size: 14px;
-            color: #555;
+            color: #bbb; /* Light gray radio labels */
         }
 
         input[type="radio"] {
@@ -119,7 +134,7 @@
         button {
             width: 100%;
             padding: 12px;
-            background-color: #4CAF50;
+            background-color: #4CAF50; /* Bottle Green button */
             color: #fff;
             font-size: 18px;
             font-weight: bold;
@@ -130,12 +145,57 @@
         }
 
         button:hover {
-            background-color: #3e8e41;
+            background-color: #3e8e41; /* Darker green on hover */
             transform: scale(1.02);
         }
 
         button:active {
             transform: scale(1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .form-container {
+                width: 100%;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner {
+                background-position: top center;
+                min-height: auto; /* Allow height to adjust based on content */
+                padding: 10px; /* Reduce padding for smaller screens */
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .form-container {
+                padding: 15px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .form-row > div {
+                width: 100%;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            textarea,
+            select {
+                padding: 10px; /* Adjust padding for smaller screens */
+            }
         }
     </style>
 </head>
@@ -143,7 +203,7 @@
     <header class="banner">
         <div class="form-container">
             <h2>Book Now</h2>
-            <form action="#" method="POST">
+            <form id="booking-form">
                 <div class="form-row">
                     <div>
                         <label for="name">Name</label>
@@ -183,5 +243,36 @@
             </form>
         </div>
     </header>
+
+    <script>
+        // Handle form submission
+        document.getElementById('booking-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                contact: formData.get('contact'),
+                email: formData.get('email'),
+                eventName: formData.get('event-name'),
+                eventVenue: formData.get('event-venue'),
+                service: formData.get('service'),
+                specialRequest: formData.get('special-request'),
+            };
+
+            // Send data to the backend using fetch
+            fetch('/book.html', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.text())
+            .then(message => alert(message))
+            .catch(error => alert('Error: ' + error));
+        });
+    </script>
+    <script src="server.js"></script>
 </body>
 </html>
